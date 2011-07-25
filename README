@@ -1,0 +1,2 @@
+Acts as a TCP Stack which handles SYN , SYN-ACK and responds with a New SYN . Part of the research work on the concept of mitigating DoS attacks using simultaneous connection initiation.
+
