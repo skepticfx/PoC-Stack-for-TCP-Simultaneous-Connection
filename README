@@ -1,5 +1,11 @@
 Acts as a TCP Stack which handles SYN , SYN-ACK and responds with a New SYN . Part of the research work on the concept of mitigating DoS attacks using simultaneous connection initiation.
 
+Enter this IPTABLE Entry in linuc to test this PoC ,
+# iptables -A INPUT -p tcp --destination-port 80 -j DROP
+
+Try testing this with a browser for the above IPTABLE config. 
+Modify this as you like.
+
 USAGE : gcc -o blender blender.c
 $blender <interface>
 
