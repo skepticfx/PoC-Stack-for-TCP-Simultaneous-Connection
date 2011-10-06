@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
  struct ip *iphdr = NULL;
  struct tcphdr *tcphdr = NULL;
 
-printf("\n Yea am Listening ! Send me a SYN now , i'll treat it the Simultaneous Open Way\n");
+printf("\n Yea am Listening ! Send me a SYN now , i'll treat it the Split Handshake Way\n");
 
 if (argc != 2){ 
     printf("USAGE: %s <interface>\n",argv[0]); 
@@ -101,14 +101,13 @@ if (argc != 2){
   {
    printf("\nSYN_received\n");
    
-  tcp_send(iphdr->ip_dst.s_addr,iphdr->ip_src.s_addr, tcphdr->th_dport, tcphdr->th_sport , htonl(1000),
-  htonl(ntohl(tcphdr->th_seq) + 1), 0x12  );
+  tcp_send(iphdr->ip_dst.s_addr,iphdr->ip_src.s_addr, tcphdr->th_dport, tcphdr->th_sport , htonl(1000+1),
+  htonl(ntohl(tcphdr->th_seq) + 1), 0x10  );
   
-  printf("\nSYN_SENT (SYN-ACK)\n");
+  printf("\nACK_SENT (ACK)\n");
   
   established++;  
-  printf("\nThe Connection has been Established !\n"); 
-  exit(1);
+  printf("\nThe Connection has been Established using Split Handshake !\n"); 
   
   }
   
