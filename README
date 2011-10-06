@@ -6,7 +6,12 @@ Enter this IPTABLE Entry in linuc to test this PoC ,
 Try testing this with a browser for the above IPTABLE config. 
 Modify this as you like.
 
-USAGE : gcc -o blender blender.c
+Make sure you have installed the the libpcap library for C.
+
+#Use the linker 'pcap' while compiling , just like the below one.
+# Any Queries ? Send me a mail @ ahamed.nafeez@gmail.com
+
+USAGE : gcc -o blender blender.c -lpcap
 $blender <interface>
 
 Example :
